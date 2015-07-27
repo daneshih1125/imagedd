@@ -36,7 +36,7 @@ def cmd_dd(dd_list):
         dd_name = item[0]
         dd_skip = item[1]
         dd_count = int(item[3]) * dd_unit
-        cmd = "dd if=%s of=%s bs=512 skip=%s count=%d" % (sys.argv[1], dd_name, dd_skip, dd_count)
+        cmd = "dd if=%s of=%s ibs=512 obs=2M skip=%s count=%d" % (sys.argv[1], dd_name, dd_skip, dd_count)
         print(cmd)
         os.system(cmd)
     
@@ -45,7 +45,7 @@ def dd_partition(partitions):
     dd_no = int(raw_input('Input:'))
     if dd_no == 0:
         cmd_dd(partitions)
-    elif dd_no < len(partitions):
+    elif dd_no <= len(partitions):
         cmd_dd([partitions[dd_no-1]])
     else:
         print("incorrect partition number")
