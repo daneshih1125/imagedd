@@ -1,2 +1,2 @@
 # imagedd
-dd partiotion form entire hard disk dd file
+dd partiotion from entire hard disk dd file
